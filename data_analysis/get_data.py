@@ -1,7 +1,7 @@
 from typing import List
 import pandas as pd
 import numpy as np
-from pandas.core.frame import DataFrame
+
 
 def get_chicago_data() -> pd.DataFrame:
     """Gets Chicago's data from a csv file and returns a panda DataFrame."""
