@@ -31,13 +31,13 @@ def get_data_by_city(cities: list[str]) -> pd.DataFrame:
     """Receives a list of strings that represent cities and returns a panda DataFrame."""
     data = pd.DataFrame(columns=["Unnamed: 0", "Start Time", "End Time", "Trip Duration", "Start Station", "End Station", "User Type", "Gender", "Birth Year", "city"])
 
-    if "chicago" in cities or "Chicago" in cities or "CHICAGO" in cities:
+    if "chicago" in cities or "Chicago" in cities or "CHICAGO" in cities or "*" in cities:
         data = data.append(get_chicago_data())
 
-    if "new york" in cities or "New York" in cities or "NEW YORK" in cities:
+    if "new york" in cities or "New York" in cities or "NEW YORK" in cities or "*" in cities:
         data = data.append(get_new_york_data())
 
-    if "washington" in cities or "Washington" in cities or "WASHINGTON" in cities:
+    if "washington" in cities or "Washington" in cities or "WASHINGTON" in cities or "*" in cities:
         data = data.append(get_washington_data())
 
     return data
