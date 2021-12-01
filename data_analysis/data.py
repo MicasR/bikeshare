@@ -1,30 +1,16 @@
 import pandas as pd
 
 
-def chicago_data() -> pd.DataFrame:
-    """Get Chicago's data from a csv file and return a panda DataFrame."""
-    data = pd.read_csv("./raw_data/chicago.csv")
-    data["city"] = "Chicago"
+def retrieve_data_from_csv(path:str, city:str) -> pd.DataFrame:
+    """Get csv data and return a panda dataframe with origen column."""
+    data = pd.read_csv(path)
+    data["city"] = city
     return data
 
 
-def new_york_data() -> pd.DataFrame:
-    """Get New York's data from a csv file and return a panda DataFrame."""
-    data = pd.read_csv("./raw_data/new_york_city.csv")
-    data["city"] = "New York"
-    return data
-
-
-def washington_data() -> pd.DataFrame:
-    """Get Washington's data from a csv file and return a panda DataFrame."""
-    data = pd.read_csv("./raw_data/washington.csv")
-    data["city"] = "Washington"
-    return data
-
-
-CHICAGO = chicago_data()
-NEW_YORK = new_york_data()
-WASHINGTON = washington_data()
+CHICAGO = retrieve_data_from_csv("./raw_data/chicago.csv", "Chicago")
+NEW_YORK = retrieve_data_from_csv("./raw_data/new_york_city.csv", "New York")
+WASHINGTON = retrieve_data_from_csv("./raw_data/washington.csv", "Washington")
 
 
 def casefold_str_items(listing:list)->list:
@@ -38,7 +24,7 @@ def casefold_str_items(listing:list)->list:
     return [item.casefold() if type(item)==str else item for item in listing]
 
 
-def get_by_city(cities: list[str]) -> pd.DataFrame:
+def get_raw_by_city(cities: list[str]) -> pd.DataFrame:
     """
     Receive a list of strings that represent cities and return a panda DataFrame with the data.
 
@@ -52,12 +38,12 @@ def get_by_city(cities: list[str]) -> pd.DataFrame:
     Ignore if an unavailable city string is provided.\n
 
     # Examples:
-    ``get_by_city(["New York"]) #-> New York data``\n
-    ``get_by_city(["New York", "243"]) #-> New York data``\n
-    ``get_by_city(["cHicAgo", "waSHINGton"]) #-> Chicago and Washington data``\n
-    ``get_by_city(["*"]) #-> all data``\n
-    ``get_by_city(["NYC"]) #-> no data``\n
-    ``get_by_city([]) #-> no data``\n
+    ``get_raw_by_city(["New York"]) #-> New York data``\n
+    ``get_raw_by_city(["New York", "243"]) #-> New York data``\n
+    ``get_raw_by_city(["cHicAgo", "waSHINGton"]) #-> Chicago and Washington data``\n
+    ``get_raw_by_city(["*"]) #-> all data``\n
+    ``get_raw_by_city(["NYC"]) #-> no data``\n
+    ``get_raw_by_city([]) #-> no data``\n
     """
     frames = []
     cities_lower_case = casefold_str_items(cities)
@@ -68,3 +54,34 @@ def get_by_city(cities: list[str]) -> pd.DataFrame:
 
     if frames: return pd.concat(frames, ignore_index=True)
     else: return pd.DataFrame()
+
+
+def get_clean_by_city(cities: list[str]) -> pd.DataFrame:
+    """
+    Receive a list of strings that represent cities and return a panda DataFrame with the data.\n
+    Its like the get_raw_by_city but with cleaning methods applied
+
+    # Keyword arguments:\n
+    cities:list[str]\n
+    * The available cities are `"Chicago"`, `"New York"` and `"Washington"`.\n
+    * Accept any string capitalization of this cities.\n
+    * Return all city data if ["*"] is received.
+
+    # Exceptions:\n
+    Ignore if an unavailable city string is provided.\n
+
+    # Examples:
+    ``get_clean_by_city(["New York"]) #-> New York data``\n
+    ``get_clean_by_city(["New York", "243"]) #-> New York data``\n
+    ``get_clean_by_city(["cHicAgo", "waSHINGton"]) #-> Chicago and Washington data``\n
+    ``get_clean_by_city(["*"]) #-> all data``\n
+    ``get_clean_by_city(["NYC"]) #-> no data``\n
+    ``get_clean_by_city([]) #-> no data``\n
+    """
+    df = get_raw_by_city(cities)
+    if pd.DataFrame().equals(df): return df
+    else:
+        df["User Type"].fillna("unknown", inplace=True)
+        df["Gender"].fillna("unknown", inplace=True)
+        df["Birth Year"].fillna(0.0, inplace=True)
+        return df
