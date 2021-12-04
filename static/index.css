@@ -1,0 +1,36 @@
+.filter-form{
+    min-width: 400px;
+}
+
+.period{
+    flex-basis: 1px;
+    flex-grow: 1;
+}
+
+.period input{
+    width: 100%;
+}
+
+@media screen and (max-width: 575.98px) {
+    .filter-form {
+        min-width: 0px;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .period{
+        width: 100%;
+    }
+
+    .period input{
+        width: 100%;
+    }
+
+    .duration{
+        width: 100%;
+    }
+
+    .duration input{
+        width: 100%;
+    }
+}

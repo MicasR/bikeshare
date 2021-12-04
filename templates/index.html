@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{%block css_link%}
+<link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+{%endblock%}
+
+{% block body %}
+    <div class="filter-body d-flex justify-content-center">
+        <div class="filter-form my-0 my-sm-5 p-3 drk-bg2">
+            <div class="filter-form-head"><h2>Filter Data:</h2></div>
+            <div class="filter-form-bofy">
+                <form action="" method="get">
+
+                    <h5 class="city-label">Cities:</h5>
+                    <div class="cities d-flex justify-content-between flex-wrap gap-2">
+                        <div class="city">
+                            <input type="checkbox" name="chicago" id="chicago" checked>
+                            <label for="chicago">Chicago</label>
+                        </div>
+                        <div class="city">
+                            <input type="checkbox" name="new-york" id="new-york" checked>
+                            <label for="new-york">New York</label>
+                        </div>
+                        <div class="city">
+                            <input type="checkbox" name="washington" id="washington" checked>
+                            <label for="washington">Washington</label>
+                        </div>
+                    </div>
+
+                    <h5 class="trip-label mt-4 mb-1">Trip:</h5>
+                    <div class="trip-period d-flex justify-content-between flex-wrap gap-3">
+                        <div class="period">
+                            <div><label for="date-from">From:</label></div>
+                            <div><input type="date" name="date-from" id="date-from"></div>
+                        </div>
+                        <div class="period">
+                            <div><label for="date-Thru">Thru:</label></div>
+                            <div><input type="date" name="Thru-from" id="date-Thru"></div>
+                        </div>
+                    </div>
+
+                    <h5 class="duration-label mt-4 mb-1">Duration (in seconds):</h5>
+                    <div class="trip-duration d-flex justify-content-between flex-wrap gap-3">
+                        <div class="duration">
+                            <div><label for="min-duration">Min:</label></div>
+                            <div><input type="number" name="min-duration" id="min-duration"></div>
+                        </div>
+                        <div class="duration">
+                            <div><label for="max-duration">Max:</label></div>
+                            <div><input type="number" name="max-duration" id="max-duration"></div>
+                        </div>
+                    </div>
+
+                    <h5 class="user-type-label mt-4">User Type:</h5>
+                    <div class="user-types d-flex justify-content-between flex-wrap gap-2">
+                        <div class="user-type">
+                            <input type="checkbox" name="Subscriber" id="Subscriber" checked>
+                            <label for="Subscriber">Subscriber</label>
+                        </div>
+                        <div class="user-type">
+                            <input type="checkbox" name="Customer" id="Customer" checked>
+                            <label for="Customer">Customer</label>
+                        </div>
+                        <div class="user-type">
+                            <input type="checkbox" name="Dependent" id="Dependent" checked>
+                            <label for="Dependent">Dependent</label>
+                        </div>
+                        <div class="user-type">
+                            <input type="checkbox" name="unknown" id="unknown" checked>
+                            <label for="unknown">Unknown</label>
+                        </div>
+                    </div>
+
+                    <h5 class="duration-label mt-4 mb-1">Users Ages:</h5>
+                    <div class="trip-duration d-flex justify-content-between flex-wrap gap-3">
+                        <div class="duration">
+                            <div><label for="min-age">Min Age:</label></div>
+                            <div><input type="number" name="min-age" id="min-age"></div>
+                        </div>
+                        <div class="duration">
+                            <div><label for="max-age">Max Age:</label></div>
+                            <div><input type="number" name="max-age" id="max-age"></div>
+                        </div>
+                    </div>
+
+                    <h5 class="user-type-label mt-4">Gender:</h5>
+                    <div class="user-types d-flex justify-content-between flex-wrap gap-3">
+                        <div class="user-type">
+                            <input type="checkbox" name="Male" id="Male" checked>
+                            <label for="Male">Male</label>
+                        </div>
+                        <div class="user-type">
+                            <input type="checkbox" name="Female" id="Female" checked>
+                            <label for="Female">Female</label>
+                        </div>
+                        <div class="user-type">
+                            <input type="checkbox" name="Unknown" id="Unknown" checked>
+                            <label for="Unknown">Unknown</label>
+                        </div>
+                    </div>
+                    <div class="mt-4 d-flex flex-wrap justify-content-center gap-4 align-content-center">
+                        <button class="btn  btn-lg btn-outline-warning" type="button">Reset</button>
+                        <button class="btn  btn-lg btn-outline-primary" type="submit">Query</button>
+                    </div>
+                    <div class="mt-4 mb-2 d-flex justify-content-center">
+                        <div>Made by: <span class="drk-text2">Micas</span> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
