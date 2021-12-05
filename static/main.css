@@ -34,12 +34,28 @@
     background-color: var(--drk-bg3);;
 }
 
+.drk-bg-blue{
+    background-color: var(--drk-blue);;
+}
+
 .drk-text1{
     color: var(--drk-text1)
 }
 
 .drk-text2{
     color: var(--drk-text2)
+}
+
+.drk-text3{
+    color: var(--drk-bg1)
+}
+
+.drk-text4{
+    color: var(--drk-bg2)
+}
+
+.drk-text5{
+    color: var(--drk-bg3)
 }
 
 .drk-text-green{
