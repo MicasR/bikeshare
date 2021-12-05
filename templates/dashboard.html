@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+
+{%block css_link%}
+<link rel="stylesheet" href="{{url_for('static', filename='dashboard.css')}}">
+{%endblock%}
+
+{%block body%}
+<nav class="drk-bg2 d-flex justify-content-center py-2">
+    <div class="container d-flex align-items-center gap-5 flex-wrap">
+        <a href="{{url_for('index')}}" class="d-block filter-link">
+            <div><i class="bi bi-filter-circle-fill"></i></div>
+        </a>
+    </div>
+</nav>
+
+<main class="my-3">
+    <div class="container-sm d-grid gap-3">
+        <div class="row g-3">
+            <div class="col-12 col-sm-4">
+                <div class="simple-stat-card drk-bg2 d-flex align-items-center">
+                    <div class="card-img d-flex justify-content-center align-items-center drk-bg3"><i class="bi bi-bicycle"></i></div>
+                    <div class="content p-3">
+                        <div>Number Of Trips:</div>
+                        <div class="drk-text2">9 000 000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="simple-stat-card drk-bg2 d-flex align-items-center">
+                    <div class="card-img d-flex justify-content-center align-items-center drk-bg3"><i class="bi bi-clock-fill"></i></div>
+                    <div class="content p-3">
+                        <div>Avg Travel Time:</div>
+                        <div class="drk-text2">1h 39min 8sec</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="simple-stat-card drk-bg2 d-flex align-items-center">
+                    <div class="card-img d-flex justify-content-center align-items-center drk-bg3"><i class="bi bi-person-fill"></i></div>
+                    <div class="content p-3">
+                        <div>Avg Age:</div>
+                        <div class="drk-text2">27</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-12 col-lg-8">
+                <div class="p-3 drk-bg2"><div><canvas id="myChart"></canvas></div></div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div>
+                    <table class="table table-dark table-hover table-borderless align-middle table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">Most Common</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Month</td>
+                                <td>September</td>
+                                <td>56560</td>
+                            </tr>
+                            <tr>
+                                <td>Day of Week</td>
+                                <td>Wensday</td>
+                                <td>76760</td>
+                            </tr>
+                            <tr>
+                                <td>Hour of Day</td>
+                                <td>7:15 AM</td>
+                                <td>88960</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-12">
+                <div>
+                    <table class="table table-dark table-hover table-borderless align-middle table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Unnamed_0</th>
+                                <th scope="col">Start Time</th>
+                                <th scope="col">End Time</th>
+                                <th scope="col">Trip Duration</th>
+                                <th scope="col">Start Station</th>
+                                <th scope="col">End Station</th>
+                                <th scope="col">User Type</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Birth Year</th>
+                                <th scope="col">city</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{%endblock%}
+
+{%block scripts%}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September'
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'All Cities',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 11, 12, 37, 20, 22, 36, 47, 59],
+            },
+            {
+                label: 'Chicago',
+                backgroundColor: 'rgb(200, 110, 200)',
+                borderColor: 'rgb(200, 110, 200)',
+                data: [0, 4, 2, 4, 7, 3, 15, 26, 38],
+            },
+            {
+                label: 'New York',
+                backgroundColor: 'rgb(80, 120, 200)',
+                borderColor: 'rgb(80, 120, 200)',
+                data: [0, 2, 2, 2, 20, 14, 10, 21, 33],
+            },
+            {
+                label: 'Washington',
+                backgroundColor: 'rgb(120, 200, 80)',
+                borderColor: 'rgb(120, 200, 80)',
+                data: [0, 3, 1, 6, 10, 5, 9, 20, 32],
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),config
+    );
+
+
+</script>
+{%endblock%}
