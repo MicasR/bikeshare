@@ -10,7 +10,6 @@
             <div class="filter-form-head"><h2>Filter Data:</h2></div>
             <div class="filter-form-bofy">
                 <form id="query-form" action="{{url_for('dashboard')}}" method="get">
-
                     <h5 class="city-label">Cities:</h5>
                     <div class="cities d-flex justify-content-between flex-wrap gap-2">
                         <div class="city">
@@ -82,10 +81,15 @@
                             <div><input class="drk-text4" type="number" name="max-age" id="max-age" min=0 placeholder=133></div>
                         </div>
                     </div>
-
-                    <div class="unknown-age mt-2">
-                        <input type="checkbox" name="include-unknown-age" id="include-unknown-age" checked>
-                        <label for="include-unknown-age">Include unknown age</label>
+                    <div class="d-flex flex-wrap gap-3 mt-2">
+                        <div class="unknown-age">
+                            <input type="checkbox" name="include-known-age" id="include-known-age" checked>
+                            <label for="include-known-age">Include known age</label>
+                        </div>
+                        <div class="unknown-age">
+                            <input type="checkbox" name="include-unknown-age" id="include-unknown-age" checked>
+                            <label for="include-unknown-age">Include unknown age</label>
+                        </div>
                     </div>
 
                     <h5 class="user-type-label mt-4">Gender:</h5>
