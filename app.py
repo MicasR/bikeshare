@@ -11,8 +11,7 @@ def index():
 
 @app.route("/Dashboard")
 def dashboard():
-    filters = request.args.to_dict()
-    formated_filters = formater.format_filters(filters)
+    formated_filters = formater.format_filters(request.args.to_dict())
     # TODO Get dataframe by:
     # df = data.filter_data(formated_filters)
 
