@@ -34,13 +34,13 @@ def format_filters(filters: dict) -> dict:
 
     # append user types
     if filters.get("user-type-unknown") == "on": formated_dict["user_types"].append("unknown")
-    if filters.get("user-type-customer") == "on": formated_dict["user_types"].append("customer")
-    if filters.get("user-type-dependent") == "on": formated_dict["user_types"].append("dependent")
-    if filters.get("user-type-subscriber") == "on": formated_dict["user_types"].append("subscriber")
+    if filters.get("user-type-customer") == "on": formated_dict["user_types"].append("Customer")
+    if filters.get("user-type-dependent") == "on": formated_dict["user_types"].append("Dependent")
+    if filters.get("user-type-subscriber") == "on": formated_dict["user_types"].append("Subscriber")
 
     # append genders
-    if filters.get("gender-male") == "on": formated_dict["genders"].append("male")
-    if filters.get("gender-female") == "on": formated_dict["genders"].append("female")
+    if filters.get("gender-male") == "on": formated_dict["genders"].append("Male")
+    if filters.get("gender-female") == "on": formated_dict["genders"].append("Female")
     if filters.get("gender-unknown") == "on": formated_dict["genders"].append("unknown")
 
     # set dates
