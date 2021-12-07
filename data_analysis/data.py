@@ -94,31 +94,6 @@ def get_clean_by_city(cities: list[str]) -> pd.DataFrame:
         return df
 
 
-filters = {
-    "cities": ["chicago", "washington", "new york"],  # list
-    "user_types": ['Subscriber', 'Customer', 'Dependent', 'unknown'],  # list
-    "genders": ["Male", "Famale", "unknown"],  # list
-    "date": {
-        "from": "2017-02-02",  # str "yyyy-mm-dd"
-        "thru": "2017-02-03",  # str "yyyy-mm-dd"
-    },
-    "duration": {
-        "min": None,  # float or float like
-        "max": 120   # float or float like
-    },
-    "age": {
-        "known": {
-            "include": True,  # bool
-            "min": 40,  # float
-            "max": 46,  # float
-        },
-        "unknown": {
-            "include": True,  # bool
-        }
-    }
-}
-
-
 def filter_data(filters: dict) -> pd.DataFrame:
     """Receive filters as a dict and return a pandas Dataframe."""
     # city
