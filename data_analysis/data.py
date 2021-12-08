@@ -1,4 +1,4 @@
-import utils as u
+from data_analysis import utils as u
 import pandas as pd
 
 
@@ -6,6 +6,10 @@ def retrieve_data_from_csv(path: str, city: str) -> pd.DataFrame:
     """Get csv data and return a panda dataframe with origen column."""
     data = pd.read_csv(path)
     data["city"] = city
+
+    if city == "Washington":
+        data["Gender"] = pd.Series()
+        data["Birth Year"] = pd.Series()
     return data
 
 
@@ -46,7 +50,9 @@ def get_raw_by_city(cities: list[str]) -> pd.DataFrame:
     ``get_raw_by_city(["NYC"]) #-> no data``\n
     ``get_raw_by_city([]) #-> no data``\n
     """
+
     frames = []
+
     cities_lower_case = casefold_str_items(cities)
 
     if "chicago" in cities_lower_case or "*" in cities_lower_case:
