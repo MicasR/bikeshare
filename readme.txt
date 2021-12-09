@@ -3,6 +3,7 @@ I use python3.96, and other dependencies are in the requirements.txt file.
 
 =============================================
 HOW TO RUN APP
+(Unzip How to intall app to see the video)
 =============================================
 
 1. Download the flies and ensure you have the correct python(3.96) version.
