@@ -3,51 +3,23 @@ import calendar
 from data_analysis import utils as u
 import pandas as pd
 
-import json
-
 
 def trips_month_city(df:pd.DataFrame) -> dict:
     """return a dict with the trips by city and by month"""
     final_info = {
-        "Chicago": {
-            "1": 0,
-            "2": 0,
-            "3": 0,
-            "4": 0,
-            "5": 0,
-            "6": 0,
-        },
-        "New York": {
-            "1": 0,
-            "2": 0,
-            "3": 0,
-            "4": 0,
-            "5": 0,
-            "6": 0,
-        },
-        "Washington": {
-            "1": 0,
-            "2": 0,
-            "3": 0,
-            "4": 0,
-            "5": 0,
-            "6": 0,
-        }
+        "All": [0,0,0,0,0,0],
+        "Chicago": [0,0,0,0,0,0],
+        "New York": [0,0,0,0,0,0],
+        "Washington": [0, 0, 0, 0, 0, 0],
     }
 
     group_by_dict = df.groupby(["city", pd.DatetimeIndex(df["Start Time"]).month])["Trip Duration"].count().to_dict()
 
     for key in group_by_dict.keys():
         (city, month) = key
-        final_info[city][str(month)] = group_by_dict[key]
-
+        final_info[city][month-1] = group_by_dict[key]
+        final_info["All"][month-1] += group_by_dict[key]
     return final_info
-
-
-
-
-
-
 
 
 def analyze(df: pd.DataFrame) -> dict:
@@ -56,14 +28,19 @@ def analyze(df: pd.DataFrame) -> dict:
         "number_of_trips": None,
         "avg_travel_time": None,
         "avg_age": None,
-        "trips_month_city": None,
+        "trips_month_city":  {
+            "All": [0, 0, 0, 0, 0, 0],
+            "Chicago": [0, 0, 0, 0, 0, 0],
+            "New York": [0, 0, 0, 0, 0, 0],
+            "Washington": [0, 0, 0, 0, 0, 0],
+        },
         "most_common_month": None,
         "most_common_dow": None,
         "most_common_hod": None,
     }
     if not df.empty:
         # number_of_trips
-        analysis["number_of_trips"] = len(df.index)
+        analysis["number_of_trips"] = f'{(len(df.index)) :,}'
 
         # number_of_trips
         analysis["avg_age"] = len(df.index)
